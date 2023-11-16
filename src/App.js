@@ -6,6 +6,7 @@ import { RouterProvider } from 'react-router-dom';
 import Store from './store/Store';
 import Signin from './pages/Signin';
 import Login from './pages/Login';
+import Home from './pages/Home';
 
 const AppLayout = () => {
   return (
@@ -27,6 +28,10 @@ const appRouter = createBrowserRouter([
       {
         path:"signin",
         element:<Signin/>
+      },
+      {
+        path:"home",
+        element:<Home/>
       },
       
 

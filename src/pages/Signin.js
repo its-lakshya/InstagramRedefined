@@ -1,6 +1,7 @@
 import textLogo from "../assets/textLogo.png";
 import appStoreLogo from "../assets/appStoreLogo.png";
 import playStoreLogo from "../assets/playStoreLogo.png";
+import { Link } from "react-router-dom";
 
 const Signin = () => {
   return (
@@ -21,19 +22,19 @@ const Signin = () => {
           
             <div className="w-full flex flex-col gap-y-2">
               <input
-                className="w-full h-9 border border-gray-300 px-1 text-xs outline-none rounded-sm"
+                className="w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50"
                 placeholder="Mobile number or email address"
               />
               <input
-                className="w-full h-9 border border-gray-300 px-1 text-xs outline-none rounded-sm"
+                className="w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50"
                 placeholder="Full Name"
               />
               <input
-                className="w-full h-9 border border-gray-300 px-1 text-xs outline-none rounded-sm"
+                className="w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50"
                 placeholder="Username"
               />
               <input
-                className="w-full h-9 border border-gray-300 px-1 text-xs outline-none rounded-sm"
+                className="w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50"
                 placeholder="Password"
               />
             </div>
@@ -52,7 +53,7 @@ const Signin = () => {
         </div>
         <div className="w-full h-16 border border-gray-300 flex items-center justify-center text-sm tracking-wide ">
           Have an account? &nbsp;
-          <button className="text-blue-400 font-bold">Log in</button>{" "}
+          <Link to="/" className="text-blue-400 font-bold">Log in</Link>{" "}
         </div>
         <div className="w-full h-6 flex items-center justify-center text-sm tracking-wide">
           Get the app.

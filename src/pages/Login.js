@@ -5,6 +5,7 @@ import loginImage from "../assets/loginImage.png"
 import loginImage2 from "../assets/loginImage2.png"
 import { loginFooter } from "../utils/constants"
 import { loginFooterAdditional } from "../utils/constants"
+import { Link } from "react-router-dom"
 
 const Login = () => {
     return (
@@ -21,8 +22,8 @@ const Login = () => {
                         <img src={textLogo} alt='text logo' className='h-24 w-48'/>
                         <div className='w-full flex flex-col gap-y-4'>
                         <div className="w-full flex flex-col gap-y-2">
-                        <input className='w-full h-9 border border-gray-300 px-1 text-xs outline-none rounded-sm' placeholder="Username"/>
-                        <input className='w-full h-9 border border-gray-300 px-1 text-xs outline-none rounded-sm' placeholder="Password"/>
+                        <input className='w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50' placeholder="Username"/>
+                        <input className='w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50' placeholder="Password"/>
                         </div>
                         <button className='w-full rounded-lg bg-blue-400 h-8 text-sm font-semibold text-white'>Log in</button>
                         <div className='flex items-center justify-center text-sm font-semibold tracking-wide'>OR</div>
@@ -30,7 +31,7 @@ const Login = () => {
                         <div className='flex items-center justify-center text-xs tracking-wide text-blue-900'>Forgotten you password?</div>
                         </div>
                     </div>
-                    <div className='w-full h-16 border border-gray-300 flex items-center justify-center text-sm tracking-wide '>Don't have an account? &nbsp;<span className='text-blue-400 font-bold'>Sign up</span> </div>
+                    <div className='w-full h-16 border border-gray-300 flex items-center justify-center text-sm tracking-wide '>Don't have an account? &nbsp;<Link to='/signin' className='text-blue-400 font-bold'>Sign up</Link> </div>
                     <div className='w-full h-6 flex items-center justify-center text-sm tracking-wide'>Get the app.</div>
                     <div className='w-full h-12 flex items-center justify-center gap-x-2'>
                         <img src={appStoreLogo} alt="app store logo" className='w-32 h-10'/>
