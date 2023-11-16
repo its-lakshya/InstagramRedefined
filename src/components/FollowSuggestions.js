@@ -21,9 +21,9 @@ const FollowSuggestions = () => {
                     <div className='text-xs font-bold'>See All</div>
                 </div>
                 <div className="w-full flex flex-col gap-y-4">
-                    {followData.map((entry)=> {
+                    {followData.map((entry, index)=> {
                         return (
-                            <div className='flex justify-between items-center'>
+                            <div className='flex justify-between items-center' key={index}>
                                 <div className='flex gap-x-3 items-center justify-center'>
                                     <img src={entry.dp} alt="profile img" className='w-[2.7rem] h-[2.7rem] rounded-full'/>
                                     <div className='flex flex-col text-sm items-start justify-center'>

@@ -9,12 +9,12 @@ import { GrAddCircle } from "react-icons/gr";
 import { FaThreads } from "react-icons/fa6";
 import { GrMenu } from "react-icons/gr";
 import profile from "../assets/profile.jpeg"
-import MainContainer from "../components/MainContainer";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
     return (
         <div className='w-full h-auto flex relative'>
-            <div className=' w-[22rem] max-2xl:w-64 h-screen  border-r flex flex-col items-center justify-between border-gray-300'>
+            <div className='w-[22rem] max-2xl:w-64 h-screen fixed border-r flex flex-col items-center justify-between border-gray-300'>
                 <div className='w-5/6 h-auto flex flex-col items-start justify-center gap-y-8 py-8'>
                     <img src={textLogo} alt='text logo' className="w-30 h-[3.5rem]"/>
                     <div className='flex items-center justify-start gap-x-4 '><FiHome className='text-2xl '/>Home</div>
@@ -31,7 +31,7 @@ const Home = () => {
                     <div className='flex items-center justify-start gap-x-4 '><GrMenu className='text-2xl '/>More</div>
                 </div>
             </div>
-            <MainContainer/>
+            <Outlet/>
         </div>
     )
 }

@@ -7,10 +7,11 @@ import Store from './store/Store';
 import Signin from './pages/Signin';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import MainContainer from "./components/MainContainer";
 
 const AppLayout = () => {
   return (
-    <div className=" h-screen w-full">
+    <div className="h-screen w-full select-none">
       <Outlet/>
     </div>
   );
@@ -31,7 +32,13 @@ const appRouter = createBrowserRouter([
       },
       {
         path:"home",
-        element:<Home/>
+        element:<Home/>,
+        children:[
+          {
+            path:"",
+            element:<MainContainer/>
+          }
+        ]
       },
       
 
