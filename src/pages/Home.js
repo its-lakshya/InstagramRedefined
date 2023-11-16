@@ -8,7 +8,7 @@ import { FiHeart } from "react-icons/fi";
 import { GrAddCircle } from "react-icons/gr";
 import { FaThreads } from "react-icons/fa6";
 import { GrMenu } from "react-icons/gr";
-import story4 from "../assets/story4.jpeg"
+import profile from "../assets/profile.jpeg"
 import MainContainer from "../components/MainContainer";
 
 const Home = () => {
@@ -24,7 +24,7 @@ const Home = () => {
                     <div className='flex items-center justify-start gap-x-4 '><AiOutlineMessage className='text-2xl '/>Messages</div>
                     <div className='flex items-center justify-start gap-x-4 '><FiHeart className='text-2xl '/>Notifications</div>
                     <div className='flex items-center justify-start gap-x-4 '><GrAddCircle className='text-2xl '/>Create</div>
-                    <div className='flex items-center justify-start gap-x-4 '><img src={story4} alt='profile img' className='w-6 h-6 rounded-full'/>Profile</div>
+                    <div className='flex items-center justify-start gap-x-4 '><img src={profile} alt='profile img' className='w-6 h-6 rounded-full'/>Profile</div>
                 </div>
                 <div className='w-5/6 h-36 flex flex-col items-start justify-center gap-y-8'>
                     <div className='flex items-center justify-start gap-x-4 '><FaThreads className='text-2xl '/>Threads</div>
