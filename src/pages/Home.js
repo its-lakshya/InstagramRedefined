@@ -45,7 +45,6 @@ const Home = () => {
                     <button className='flex items-center justify-start gap-x-4 '><GrMenu className='text-2xl '/><span className='max-xl:hidden'>More</span></button>
                 </div>
             </div>
-            <button >open</button>
             {(isOpen) ? <PostSection closePostSection={closePostSection} /> : null}
             <Outlet/>
         </div>

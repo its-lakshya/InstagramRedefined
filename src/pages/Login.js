@@ -99,16 +99,16 @@ const Login = () => {
             </div>
             <div className='w-full h-28 flex flex-col items-center justify-center gap-y-5 '>
                 <div className='flex text-xs text-gray-500 gap-x-4 tracking-wide flex-wrap justify-center gap-y-2'>
-                    {loginFooter.map((entry)=> {
+                    {loginFooter.map((entry, index)=> {
                         return(
-                            <div>{entry}</div>
+                            <div key={index}>{entry}</div>
                         )
                     })}
                 </div>
                 <div className="flex text-xs text-gray-500 gap-x-4 tracking-wide">
-                    {loginFooterAdditional.map((entry)=> {
+                    {loginFooterAdditional.map((entry, index)=> {
                             return(
-                                <div>{entry}</div>
+                                <div key={index}>{entry}</div>
                             )
                     })}</div> 
             </div>

@@ -43,9 +43,9 @@ const FollowSuggestions = () => {
             </div>
             <div className='w-full flex flex-col gap-5 text-xs text-gray-400 mt-5'>
                 <div className='flex flex-wrap  gap-x-1 gap-y-1'>
-                    {followDataFooter.map((entry)=> {
+                    {followDataFooter.map((entry, index)=> {
                         return (
-                            <span>{entry}</span>
+                            <span key={index}>{entry}</span>
                         )
                     })}
                 </div>

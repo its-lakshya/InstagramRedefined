@@ -2,7 +2,7 @@ import { storyData } from "../utils/constants";
 
 const StorySection = () => {
     return (
-        <div class="w-[40rem] h-auto flex items-center justify-center max-sm:justify-end gap-x-3 max-sm:gap-x-1  max-sm:w-[32rem] max-sm:overflow-x-scroll  ">
+        <div className="w-[40rem] h-auto flex items-center justify-center max-sm:justify-end gap-x-3 max-sm:gap-x-1  max-sm:w-[32rem] max-sm:overflow-x-scroll  ">
             {storyData.map((entry, index)=> {
                 return (
                     <div className='w-full h-auto text-xs flex flex-col items-center justify-start gap-y-1' key={index}>

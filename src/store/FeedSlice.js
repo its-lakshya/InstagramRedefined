@@ -19,7 +19,6 @@ import dp7 from "../assets/story7.jpeg"
 import dp8 from "../assets/story8.jpeg"
 import dp9 from "../assets/follow5.jpeg"
 import dp10 from "../assets/follow3.jpeg"
-import { useState } from "react";
 
 const initialState = [
     {   
@@ -287,7 +286,6 @@ const FeedSlice = createSlice({
 
         },
         comment:(state,action) => {
-            // console.log(action.payload.text, action.payload.index)
             state[action.payload.index].comments.push({username:action.payload.username, text:action.payload.text})
         },
         setCommentsVisibility:(state, action)=> {
@@ -301,7 +299,9 @@ const FeedSlice = createSlice({
             }
         },
         createPost:(state, action)=> {
-            state.push(action.payload)
+            const temp = state[0];
+            state[0] = action.payload;
+            state.push(temp);
         }   
     }
 })

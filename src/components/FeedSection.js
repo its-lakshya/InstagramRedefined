@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const FeedSection = () => {
 
-    const [commentText, setCommentText] = useState({text:null, index:0});
+    const [commentText, setCommentText] = useState({text:"", index:0});
     const userData = useSelector((store) => store.signInDetails.currentUserData)
 
 
@@ -40,7 +40,7 @@ const FeedSection = () => {
                     <div className="flex flex-col w-full border-b border-gray-300 gap-y-3 pb-4" key={index}>
                         <div className='w-full flex items-center justify-between'>
                             <div className="flex items-center justify-center gap-x-2">
-                                <img src={data.dp} alt='profile img' class='w-10 h-10 rounded-full'/>
+                                <img src={data.dp} alt='profile img' className='w-10 h-10 rounded-full'/>
                                 <span className='text-sm font-semibold'>{data.username}</span>
                                 <span className='text-sm text-gray-500'>{data.time}</span>
                             </div>
