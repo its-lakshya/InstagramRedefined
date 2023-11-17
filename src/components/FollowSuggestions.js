@@ -1,16 +1,20 @@
+import { useSelector } from "react-redux";
 import profile from "../assets/profile.jpeg"
 import { followData } from "../utils/constants";
 import { followDataFooter } from "../utils/constants";
 
 const FollowSuggestions = () => {
+    
+    const userData = useSelector((store) => store.signInDetails.currentUserData)
+
     return (
         <div className="w-[29%] h-auto my-3 flex flex-col gap-y-6 max-lg:hidden">
             <div className='flex justify-between items-center'>
                 <div className='flex gap-x-3 items-center justify-center'>
                     <img src={profile} alt="profile img" className='w-[2.7rem] h-[2.7rem] rounded-full'/>
                     <div className='flex flex-col text-sm items-start justify-center'>
-                        <div className='font-semibold'>its.lakshya_</div>
-                        <div className='text-gray-500'>Lakshya Kumar</div>
+                        <div className='font-semibold'>{userData.username}</div>
+                        <div className='text-gray-500'>{userData.fullname}</div>
                     </div>
                 </div>
                 <div className='text-xs text-blue-400 font-semibold'>Switch</div>

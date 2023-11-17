@@ -5,10 +5,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const SignInSlice = createSlice({
     name:'signInDetails',
     initialState: {
-        data:[],
+        data:[{username:"1", password:"1"},{username:"its.lakshya_", fullname:"Lakshya Kumar", password:"@123", mobile:3244}],
+        currentUserData:{},
         isAuthenticated:false
     },
-        // initialState,
 
     reducers:{
         storeSigninDetails:(state, action) => {
@@ -20,10 +20,13 @@ const SignInSlice = createSlice({
         },
         setAuthentication:(state, action) => {
             state.isAuthenticated=action.payload;
+        },
+        setCurrentUser:(state, action)=> {
+            state.currentUserData=action.payload;
         }
     }
     
 })
 
-export const {storeSigninDetails, storeCurrentUser, setAuthentication} = SignInSlice.actions;
+export const {storeSigninDetails, storeCurrentUser, setAuthentication, setCurrentUser} = SignInSlice.actions;
 export default SignInSlice.reducer;

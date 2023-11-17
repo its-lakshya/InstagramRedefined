@@ -8,7 +8,7 @@ import { storeSigninDetails, setAuthentication } from "../store/SigninSlice";
 
 const Signin = () => {
   const [mobile, setMobile] = useState(null);
-  const [fullName, setFullName] = useState(null);
+  const [fullname, setFullName] = useState(null);
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [visibility, setVisibility] = useState("hidden")
@@ -17,8 +17,8 @@ const Signin = () => {
   
 
   const handleSignin = () => {
-    if(mobile!=null && fullName!=null && username !=null && password!=null){
-      dispatch(storeSigninDetails({mobile, fullName, username, password}));
+    if(mobile!=null && fullname!=null && username !=null && password!=null){
+      dispatch(storeSigninDetails({mobile, fullname, username, password}));
       setVisibility("hidden")
       navigate("/");
     }

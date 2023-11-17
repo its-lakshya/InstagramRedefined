@@ -1,7 +1,7 @@
 import './App.css';
 import { Outlet } from 'react-router-dom';
 import { createBrowserRouter } from 'react-router-dom';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import Store from './store/Store';
 import Signin from './pages/Signin';
@@ -12,7 +12,7 @@ import MainContainer from "./components/MainContainer";
 const AppLayout = () => {
   return (
     <div className="h-screen w-full select-none">
-      <Outlet/>
+      <Outlet />
     </div>
   );
 }

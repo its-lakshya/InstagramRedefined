@@ -10,6 +10,8 @@ import { useState } from "react";
 const FeedSection = () => {
 
     const [commentText, setCommentText] = useState({text:null, index:0});
+    const userData = useSelector((store) => store.signInDetails.currentUserData)
+
 
     const feedData = useSelector((store) => store.feedData)
     const dispatch = useDispatch()
@@ -27,7 +29,7 @@ const FeedSection = () => {
 
     const handleCommentSubmit = (event) => {
         event.preventDefault()
-        dispatch(comment({text:commentText.text, index:commentText.index }))
+        dispatch(comment({text:commentText.text, index:commentText.index , username:userData.username}))
         setCommentText({text:" ",index:0})
     }
 

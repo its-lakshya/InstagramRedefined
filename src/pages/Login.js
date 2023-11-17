@@ -8,7 +8,7 @@ import { loginFooterAdditional } from "../utils/constants"
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setAuthentication } from "../store/SigninSlice"
+import { setAuthentication, setCurrentUser } from "../store/SigninSlice"
 
 const Login = () => {
 
@@ -17,6 +17,8 @@ const Login = () => {
     const [visibility, setVisibility] = useState("hidden");
     const signinDetails = useSelector((store) => store.signInDetails.data)
     const authStatus = useSelector((store)=> store.signInDetails.isAuthenticated);
+    // const currentUser = useSelector((store)=> store.signInDetails.currentUserData)
+
     const dispatch = useDispatch()
 
     const navigate = useNavigate();
@@ -38,6 +40,7 @@ const Login = () => {
         signinDetails.find((entry) => {
             if(entry.username===username && entry.password===password){
                 dispatch(setAuthentication(true))
+                dispatch(setCurrentUser(entry))
                 navigate("/home");
             }
             

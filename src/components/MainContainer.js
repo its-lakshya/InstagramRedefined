@@ -3,6 +3,7 @@ import FeedSection from "./FeedSection";
 import FollowSuggestions from "./FollowSuggestions"
 
 const MainContainer = () => {
+    
     return (
         <div className="w-full h-auto flex items-start justify-center max-sm:justify-start py-8 ml-[22rem] max-2xl:ml-64 max-xl:ml-20 max-sm:ml-0">
             <div className='w-[62rem] h-auto  flex justify-between items-start max-lg:justify-center max-sm:w-full '>
