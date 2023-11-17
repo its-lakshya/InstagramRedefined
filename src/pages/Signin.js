@@ -1,9 +1,29 @@
 import textLogo from "../assets/textLogo.png";
 import appStoreLogo from "../assets/appStoreLogo.png";
 import playStoreLogo from "../assets/playStoreLogo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { storeSigninDetails, setAuthentication } from "../store/SigninSlice";
 
 const Signin = () => {
+  const [mobile, setMobile] = useState(null);
+  const [fullName, setFullName] = useState(null);
+  const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  
+
+  const handleSignin = () => {
+    dispatch(storeSigninDetails({mobile, fullName, username, password}));
+    navigate("/");
+  }
+
+  useEffect(()=> {
+    dispatch(setAuthentication(false))
+  },[])
+
   return (
     <div className="w-full h-screen flex items-center justify-center ">
       <div className="w-[24%] h-full flex flex-col items-center justify-center gap-y-3">
@@ -24,18 +44,22 @@ const Signin = () => {
               <input
                 className="w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50"
                 placeholder="Mobile number or email address"
+                onChange={(event)=>{setMobile(event.target.value)}}
               />
               <input
                 className="w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50"
                 placeholder="Full Name"
+                onChange={(event)=>{setFullName(event.target.value)}}
               />
               <input
                 className="w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50"
                 placeholder="Username"
+                onChange={(event)=>{setUsername(event.target.value)}}
               />
               <input
                 className="w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50"
                 placeholder="Password"
+                onChange={(event)=>{setPassword(event.target.value)}}
               />
             </div>
             <div className="w-full flex items-center justify-center text-xs text-gray-500 text-center">
@@ -46,7 +70,9 @@ const Signin = () => {
               By signing up, you agree to our Terms, Privacy Policy and Cookies
               Policy.
             </div>
-            <button className="w-full rounded-lg bg-blue-400 h-8 text-sm font-semibold text-white">
+            <button className="w-full rounded-lg bg-blue-400 h-8 text-sm font-semibold text-white"
+            onClick={handleSignin}
+            >
               Sign Up
             </button>
           </div>

@@ -10,9 +10,15 @@ import { FaThreads } from "react-icons/fa6";
 import { GrMenu } from "react-icons/gr";
 import profile from "../assets/profile.jpeg"
 import { FaInstagram } from "react-icons/fa";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+    const authStatus = useSelector((store)=> store.signInDetails.isAuthenticated);
+
+    if(!authStatus){
+        return <Navigate to="/" replace/>;
+    }
     return (
         <div className='w-full h-auto flex'>
             <div className='w-[22rem] max-2xl:w-64 max-xl:w-20 max-sm:hidden h-screen fixed border-r flex flex-col items-center justify-between border-gray-300'>

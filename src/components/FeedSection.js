@@ -4,9 +4,12 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import { TbMessageCircle2, TbMessageCircle2Filled } from "react-icons/tb";
 import { FaRegBookmark } from "react-icons/fa6";
-import { setCommentsVisibility, like } from "../store/FeedSlice";
+import { setCommentsVisibility, like, comment } from "../store/FeedSlice";
+import { useState } from "react";
 
 const FeedSection = () => {
+
+    const [commentText, setCommentText] = useState({text:null, index:0});
 
     const feedData = useSelector((store) => store.feedData)
     const dispatch = useDispatch()
@@ -16,6 +19,16 @@ const FeedSection = () => {
     }
     const handleLikeClick = ({index}) => {
         dispatch(like(index))
+    }
+
+    const handleCommentChange = (event, index) => {
+        setCommentText({text:event.target.value, index:index});
+    }
+
+    const handleCommentSubmit = (event) => {
+        event.preventDefault()
+        dispatch(comment({text:commentText.text, index:commentText.index }))
+        setCommentText({text:" ",index:0})
     }
 
     return (
@@ -35,7 +48,8 @@ const FeedSection = () => {
                         <div className='w-full flex items-center justify-between text-2xl'>
                             <div className='flex gap-x-3 items-center'>
                                 <span className={`${data.likeColor} cursor-pointer`} onClick={() => {handleLikeClick({index})}}> {data.likeColor === "text-black" ? <FaRegHeart /> : <FaHeart />}</span>
-                                <span className={`${data.commentColor} cursor-pointer text-[]`} onClick={() => {handleCommentClick({index})}}> {data.commentColor === "text-black" ? <TbMessageCircle2 /> : <TbMessageCircle2Filled />}</span>                            </div>
+                                <span className={`${data.commentColor} cursor-pointer text-[]`} onClick={() => {handleCommentClick({index})}}> {data.commentColor === "text-black" ? <TbMessageCircle2 /> : <TbMessageCircle2Filled />}</span>
+                            </div>
                             <FaRegBookmark className='text-xl'/>
                         </div>
                         <div className="w-full flex flex-col gap-y-1">
@@ -54,6 +68,10 @@ const FeedSection = () => {
                                         </div>
                                     )
                                 })}
+                                <form className="w-full h-6 flex text-xs px-0" onSubmit={handleCommentSubmit}>
+                                    <input placeholder="Add comment..." className="outline-none text-xs w-full" value={commentText.text} onChange={(event)=>(handleCommentChange(event, index))}/>
+                                    <button className='w-6 text-blue-400 font-bold' type="submit">Post</button>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -5,9 +5,55 @@ import loginImage from "../assets/loginImage.png"
 import loginImage2 from "../assets/loginImage2.png"
 import { loginFooter } from "../utils/constants"
 import { loginFooterAdditional } from "../utils/constants"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setAuthentication } from "../store/SigninSlice"
 
 const Login = () => {
+
+    const [username, setUsername] = useState();
+    const [password, setPassword] = useState();
+    const [visibility, setVisibility] = useState("hidden");
+    const signinDetails = useSelector((store) => store.signInDetails.data)
+    const authStatus = useSelector((store)=> store.signInDetails.isAuthenticated);
+    const dispatch = useDispatch()
+
+    const navigate = useNavigate();
+
+    const handleUsername = (event) => {
+        setUsername(event.target.value)
+    }
+
+    const handlePassword = (event) => {
+        setPassword(event.target.value)
+    }
+    
+    useEffect(()=> {
+        dispatch(setAuthentication(false))
+    },[])
+    
+
+    const handleLogin = () => {
+        signinDetails.find((entry) => {
+            if(entry.username===username && entry.password===password){
+                dispatch(setAuthentication(true))
+                navigate("/home");
+            }
+            
+            return null
+        })
+        if (!authStatus) {
+            setVisibility("visible");
+        }
+        else{
+            setVisibility("hidden");
+        }
+    }
+
+        
+
+
     return (
         <div className='w-full h-screen flex flex-col items-center justify-center gap-y-10'>
             <div className='w-full h-[70%] flex items-center justify-center gap-x-12 '>
@@ -21,11 +67,20 @@ const Login = () => {
                     <div className=" w-full h-2/3 border border-gray-300 flex flex-col items-center justify-center px-10">
                         <img src={textLogo} alt='text logo' className='h-24 w-48'/>
                         <div className='w-full flex flex-col gap-y-4'>
-                        <div className="w-full flex flex-col gap-y-2">
-                        <input className='w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50' placeholder="Username"/>
-                        <input className='w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50' placeholder="Password"/>
-                        </div>
-                        <button className='w-full rounded-lg bg-blue-400 h-8 text-sm font-semibold text-white'>Log in</button>
+                            <div className="w-full flex flex-col gap-y-2">
+                            <input className='w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50' placeholder="Username"
+                            onChange={handleUsername}
+                            />
+                            <input className='w-full h-9 border border-gray-300 px-2 text-xs outline-none rounded-sm bg-gray-50' placeholder="Password"
+                            onChange={handlePassword}
+                            />
+                            </div>
+                        <button className='w-full rounded-lg bg-blue-400 h-8 text-sm font-semibold text-white'
+                        onClick={handleLogin}
+                        >
+                            Log in
+                        </button>
+                        <div className={`text-xs h-1 flex w-full justify-center items-center text-[#FD1D1D] ${visibility}`}>username or paswword is incorrect.</div>
                         <div className='flex items-center justify-center text-sm font-semibold tracking-wide'>OR</div>
                         <div className='flex items-center justify-center text-sm font-semibold tracking-wide text-blue-900'>Log in with Facebook</div>
                         <div className='flex items-center justify-center text-xs tracking-wide text-blue-900'>Forgotten you password?</div>

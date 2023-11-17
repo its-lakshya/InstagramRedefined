@@ -286,7 +286,8 @@ const FeedSlice = createSlice({
 
         },
         comment:(state,action) => {
-            state[action.payload.index].comments.push_back(action.payload.text)
+            // console.log(action.payload.text, action.payload.index)
+            state[action.payload.index].comments.push({username:'lakshya_kumar', text:action.payload.text})
         },
         setCommentsVisibility:(state, action)=> {
             if(state[action.payload].commentsVisibility==='hidden'){
