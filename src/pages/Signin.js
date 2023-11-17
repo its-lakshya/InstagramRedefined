@@ -11,13 +11,20 @@ const Signin = () => {
   const [fullName, setFullName] = useState(null);
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const [visibility, setVisibility] = useState("hidden")
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
 
   const handleSignin = () => {
-    dispatch(storeSigninDetails({mobile, fullName, username, password}));
-    navigate("/");
+    if(mobile!=null && fullName!=null && username !=null && password!=null){
+      dispatch(storeSigninDetails({mobile, fullName, username, password}));
+      setVisibility("hidden")
+      navigate("/");
+    }
+    else{
+      setVisibility("visible")
+    }
   }
 
   useEffect(()=> {
@@ -26,7 +33,7 @@ const Signin = () => {
 
   return (
     <div className="w-full h-screen flex items-center justify-center ">
-      <div className="w-[24%] h-full flex flex-col items-center justify-center gap-y-3">
+      <div className="w-[22rem] h-full flex flex-col items-center justify-center gap-y-3 max-md:px-2">
         <div className=" w-full h-3/4 border border-gray-300 flex flex-col items-center justify-center px-10">
           <img src={textLogo} alt="text logo" className="h-24 w-48" />
           <div className="w-full flex flex-col gap-y-4">
@@ -75,6 +82,7 @@ const Signin = () => {
             >
               Sign Up
             </button>
+            <div className={`text-xs h-1 flex w-full justify-center items-center text-[#FD1D1D] ${visibility}`}> All fields are mendatory.</div>
           </div>
         </div>
         <div className="w-full h-16 border border-gray-300 flex items-center justify-center text-sm tracking-wide ">

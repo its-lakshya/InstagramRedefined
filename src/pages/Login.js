@@ -55,15 +55,15 @@ const Login = () => {
 
 
     return (
-        <div className='w-full h-screen flex flex-col items-center justify-center gap-y-10'>
+        <div className='w-full h-screen flex flex-col items-center justify-center gap-y-10 max-md:px-4'>
             <div className='w-full h-[70%] flex items-center justify-center gap-x-12 '>
-                    <div className='w-72 bg-black rounded-[2rem] border-8 border-black -mr-56 -mt-3'>
+                    <div className='w-72 bg-black rounded-[2rem] border-8 border-black -mr-56 -mt- max-md:hidden'>
                         <img src={loginImage} alt="login img" className='w-full'/>
                     </div>
-                    <div className='w-72 bg-black rounded-[2rem] border-8 border-black '>
+                    <div className='w-72 bg-black rounded-[2rem] border-8 border-black max-md:hidden '>
                         <img src={loginImage2} alt="login img" className='w-full'/>
                     </div>
-                <div className='w-1/4 h-full flex flex-col items-center justify-center gap-y-3'>
+                <div className='w-[22rem] h-full flex flex-col items-center justify-center gap-y-3'>
                     <div className=" w-full h-2/3 border border-gray-300 flex flex-col items-center justify-center px-10">
                         <img src={textLogo} alt='text logo' className='h-24 w-48'/>
                         <div className='w-full flex flex-col gap-y-4'>
@@ -94,8 +94,8 @@ const Login = () => {
                     </div>
                 </div> 
             </div>
-            <div className='w-full h-28 flex flex-col items-center justify-center gap-y-5'>
-                <div className='flex text-xs text-gray-500 gap-x-4 tracking-wide'>
+            <div className='w-full h-28 flex flex-col items-center justify-center gap-y-5 '>
+                <div className='flex text-xs text-gray-500 gap-x-4 tracking-wide flex-wrap justify-center gap-y-2'>
                     {loginFooter.map((entry)=> {
                         return(
                             <div>{entry}</div>
