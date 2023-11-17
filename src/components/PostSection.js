@@ -49,6 +49,7 @@ const PostSection = ({closePostSection}) => {
                             <input placeholder='paste the URL here' className='w-64 h-6 px-2 rounded-lg outline-none border border-blue-400 text-xs text-gray-700'
                             onChange={handleImage}
                             />
+                            {/* <input type='file' className='w-48 h-6 px-2 text-xs' onChange={handleImage}/> */}
                         </div>
                         <div className="flex flex-col gap-y-2 items-center">
                             Caption

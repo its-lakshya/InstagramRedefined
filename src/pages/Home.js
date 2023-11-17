@@ -26,7 +26,7 @@ const Home = () => {
         return <Navigate to="/" replace/>;
     }
     return (
-        <div className='w-full h-auto flex'>
+        <div className='w-full h-auto flex max-sm:flex-col'>
             <div className='w-[22rem] max-2xl:w-64 max-xl:w-20 max-sm:hidden h-screen fixed border-r flex flex-col items-center justify-between border-gray-300'>
                 <div className='w-5/6 h-auto flex flex-col items-start max-xl:items-center justify-center gap-y-8 py-8 max-xl:mt-4'>
                     <img src={textLogo} alt='text logo' className="w-30 h-[3.5rem] max-xl:hidden"/>
@@ -46,7 +46,23 @@ const Home = () => {
                 </div>
             </div>
             {(isOpen) ? <PostSection closePostSection={closePostSection} /> : null}
+            <div className='w-full sm:hidden max-sm:visible flex items-center justify-between h-16 fixed top-0 bg-white px-12 max-xs:px-4 border-b'>
+                    <img src={textLogo} alt='text logo' className="w-30 h-[3.5rem] mt-2"/>
+                    <div className='w-16 flex items-center justify-between'>
+                    <button className='flex items-center justify-start gap-x-4 '><FiSearch className='text-2xl '/><span className='max-xl:hidden'>Search</span></button>
+                    <button className='flex items-center justify-start gap-x-4 '><FiHeart className='text-2xl '/><span className='max-xl:hidden'>Notifications</span></button>
+                    </div>
+            </div>
             <Outlet/>
+            <div className='w-full sm:hidden max-sm:visible flex items-center justify-between h-12 fixed bottom-0 bg-white px-12 max-xs:px-4 border-t'>
+                    {/* <FaInstagram className='xl:hidden max-xl:visible text-2xl mb-6'/> */}
+                    <button className='flex items-center justify-start gap-x-4 '><FiHome className='text-2xl '/><span className='max-xl:hidden'>Home</span></button>
+                    <button className='flex items-center justify-start gap-x-4 '><FaRegCompass className='text-2xl '/><span className='max-xl:hidden'>Explore</span></button>
+                    <button className='flex items-center justify-start gap-x-4 '><LuMonitorPlay className='text-2xl '/><span className='max-xl:hidden'>Reals</span></button>
+                    <button className='flex items-center justify-start gap-x-4 ' onClick={() => {setIsOpen(true)}}><GrAddCircle className='text-2xl ' /><span className='max-xl:hidden'>Create</span></button>
+                    <button className='flex items-center justify-start gap-x-4 '><AiOutlineMessage className='text-2xl '/><span className='max-xl:hidden'>Messages</span></button>
+                    <button className='flex items-center justify-start gap-x-4 '><img src={profile} alt='profile img' className='w-6 h-6 rounded-full'/><span className='max-xl:hidden'>Profile</span></button>
+            </div>
         </div>
     )
 }

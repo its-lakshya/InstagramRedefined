@@ -34,7 +34,7 @@ const FeedSection = () => {
     }
 
     return (
-        <div className="w-[30rem] max-xs:w-[22rem]  h-auto my-8 flex flex-col items-center justify-start gap-y-6">
+        <div className="w-[30rem] max-xs:w-[22rem] max-xs:ml-[4rem] max-xxs:ml-0 h-auto my-8 flex flex-col items-center justify-start gap-y-6">
             {feedData.map((data, index)=> {
                 return (
                     <div className="flex flex-col w-full border-b border-gray-300 gap-y-3 pb-4" key={index}>
