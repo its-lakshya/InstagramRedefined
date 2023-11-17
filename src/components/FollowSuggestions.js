@@ -4,7 +4,7 @@ import { followDataFooter } from "../utils/constants";
 
 const FollowSuggestions = () => {
     return (
-        <div className="w-[29%] h-auto my-3 flex flex-col gap-y-6 ">
+        <div className="w-[29%] h-auto my-3 flex flex-col gap-y-6 max-lg:hidden">
             <div className='flex justify-between items-center'>
                 <div className='flex gap-x-3 items-center justify-center'>
                     <img src={profile} alt="profile img" className='w-[2.7rem] h-[2.7rem] rounded-full'/>

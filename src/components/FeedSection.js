@@ -19,7 +19,7 @@ const FeedSection = () => {
     }
 
     return (
-        <div className="w-3/4 h-auto my-8 flex flex-col items-center justify-start gap-y-6">
+        <div className="w-[30rem] max-xs:w-[22rem]  h-auto my-8 flex flex-col items-center justify-start gap-y-6">
             {feedData.map((data, index)=> {
                 return (
                     <div className="flex flex-col w-full border-b border-gray-300 gap-y-3 pb-4" key={index}>
@@ -35,9 +35,7 @@ const FeedSection = () => {
                         <div className='w-full flex items-center justify-between text-2xl'>
                             <div className='flex gap-x-3 items-center'>
                                 <span className={`${data.likeColor} cursor-pointer`} onClick={() => {handleLikeClick({index})}}> {data.likeColor === "text-black" ? <FaRegHeart /> : <FaHeart />}</span>
-                                <span className={`${data.commentColor} cursor-pointer text-[]`} onClick={() => {handleCommentClick({index})}}> {data.commentColor === "text-black" ? <TbMessageCircle2 /> : <TbMessageCircle2Filled />}</span>
-                                {/* <BiMessageRounded className={`${data.commentColor} cursor-pointer fill-black`} style={{ fill: 'red' }} onClick={() => {handleCommentClick({index})}}/> */}
-                            </div>
+                                <span className={`${data.commentColor} cursor-pointer text-[]`} onClick={() => {handleCommentClick({index})}}> {data.commentColor === "text-black" ? <TbMessageCircle2 /> : <TbMessageCircle2Filled />}</span>                            </div>
                             <FaRegBookmark className='text-xl'/>
                         </div>
                         <div className="w-full flex flex-col gap-y-1">
