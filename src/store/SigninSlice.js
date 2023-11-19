@@ -1,11 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// const initialState = []
-
 const SignInSlice = createSlice({
     name:'signInDetails',
     initialState: {
-        data:[{username:"1", password:"1"},{username:"its.lakshya_", fullname:"Lakshya Kumar", password:"@123", mobile:3244}],
+        data:[{username:"its.lakshya_", fullname:"Lakshya Kumar", password:"@123", mobile:3244}], //this is dummy data when you will sign in your data will be stored here
         currentUserData:{},
         isAuthenticated:false
     },
