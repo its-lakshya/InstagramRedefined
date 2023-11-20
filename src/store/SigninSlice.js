@@ -10,8 +10,8 @@ const SignInSlice = createSlice({
 
     reducers:{
         storeSigninDetails:(state, action) => {
-            state.data.push(action.payload)
-            console.log(state.data[0])
+            state.data.push(action.payload);
+            // console.log(state.data[0])
         },
         storeCurrentUser:(state, action)=> {
             state.currentUser = action.payload
