@@ -34,7 +34,7 @@ const FeedSection = () => {
         username: userData.username,
       })
     );
-    setCommentText({ text: " ", index: 0 });
+    setCommentText({ text: "", index: 0 });
   };
 
   return (
