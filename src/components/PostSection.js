@@ -50,7 +50,7 @@ const PostSection = ({ closePostSection }) => {
             <div className="text-blue-400 font-semibold text-2xl ">
               Create Post
             </div>
-            <div className="flex flex-col gap-y-2 items-center">
+            <div className="flex flex-col gap-y-2 items-center text-sm">
               Paste the URL of the Image below
               <input
                 placeholder="paste the URL here"
@@ -59,16 +59,16 @@ const PostSection = ({ closePostSection }) => {
               />
               {/* <input type='file' className='w-48 h-6 px-2 text-xs' onChange={handleImage}/> */}
             </div>
-            <div className="flex flex-col gap-y-2 items-center">
+            <div className="flex flex-col gap-y-2 items-center text-sm">
               Caption
-              <textarea
+              <input
                 placeholder="caption here"
                 className="text-xs w-64 outline-none border border-blue-400 rounded-lg px-2 py-1"
                 onChange={handleCaption}
               />
             </div>
             <button
-              className="bg-blue-400 rounded-lg w-20 h-6 text-white"
+              className="bg-blue-400 rounded-lg w-20 h-6 text-white hover:bg-blue-500"
               onClick={handlePost}
             >
               Post
